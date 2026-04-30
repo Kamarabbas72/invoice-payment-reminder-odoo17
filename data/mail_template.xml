@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="email_template_reminder_7" model="mail.template">
+            <field name="name">Invoice: 7-Day Payment Reminder</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="subject">Payment Reminder — Invoice ${object.name} Due</field>
+            <field name="body_html"><![CDATA[
+                <p>Dear ${object.partner_id.name},</p>
+                <p>This is a friendly reminder that invoice <strong>${object.name}</strong>
+                for <strong>${object.amount_total} ${object.currency_id.name}</strong>
+                was due on <strong>${object.invoice_date_due}</strong> and remains unpaid.</p>
+                <p>Please arrange payment at your earliest convenience.</p>
+                <p>If you have already made payment, please disregard this message.</p>
+                <p>Thank you for your business.</p>
+            ]]></field>
+            <field name="auto_delete">True</field>
+        </record>
+
+        <record id="email_template_reminder_15" model="mail.template">
+            <field name="name">Invoice: 15-Day Payment Reminder</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="subject">Second Notice — Invoice ${object.name} Overdue</field>
+            <field name="body_html"><![CDATA[
+                <p>Dear ${object.partner_id.name},</p>
+                <p>This is a second notice regarding invoice <strong>${object.name}</strong>
+                for <strong>${object.amount_total} ${object.currency_id.name}</strong>
+                which was due on <strong>${object.invoice_date_due}</strong>.</p>
+                <p>Your account is now <strong>15 days overdue</strong>.
+                Please arrange payment immediately to avoid further action.</p>
+                <p>If you have already made payment, please contact us with your payment details.</p>
+            ]]></field>
+            <field name="auto_delete">True</field>
+        </record>
+
+        <record id="email_template_reminder_30" model="mail.template">
+            <field name="name">Invoice: 30-Day Final Notice</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="subject">FINAL NOTICE — Invoice ${object.name} Seriously Overdue</field>
+            <field name="body_html"><![CDATA[
+                <p>Dear ${object.partner_id.name},</p>
+                <p>This is a final notice regarding invoice <strong>${object.name}</strong>
+                for <strong>${object.amount_total} ${object.currency_id.name}</strong>
+                which was due on <strong>${object.invoice_date_due}</strong>.</p>
+                <p>Your account is now <strong>30 days overdue</strong>.
+                Immediate payment is required. Failure to pay may result in
+                further action being taken.</p>
+                <p>Please contact us immediately to resolve this matter.</p>
+            ]]></field>
+            <field name="auto_delete">True</field>
+        </record>
+
+    </data>
+</odoo>
