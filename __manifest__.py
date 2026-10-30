@@ -1,6 +1,8 @@
 {
     'name': 'Invoice Payment Reminder',
     'version': '17.0.1.0.0',
+    'price': 49.00,
+    'currency': 'EUR',
     'summary': 'Automatically sends payment reminders for overdue invoices at 7, 15, and 30 days',
     'author': 'Kamarabbas Bukhari',
     'category': 'Accounting',
